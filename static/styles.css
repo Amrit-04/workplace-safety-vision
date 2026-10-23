@@ -1,0 +1,120 @@
+:root {
+  --bg: #0f172a;
+  --panel: #111827;
+  --panel-2: #1f2937;
+  --text: #e5e7eb;
+  --accent: #14b8a6;
+  --warn: #f97316;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  background: radial-gradient(circle at 20% 0%, #1e293b, #020617 60%);
+  color: var(--text);
+}
+.layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 16px;
+  padding: 16px;
+}
+.video-card, .logs-card {
+  background: rgba(17, 24, 39, 0.9);
+  border: 1px solid #334155;
+  border-radius: 12px;
+  padding: 12px;
+}
+.toolbar, .zone-toolbar {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+.btn {
+  border: none;
+  padding: 10px 14px;
+  border-radius: 9px;
+  font-weight: 700;
+  background: #374151;
+  color: white;
+  cursor: pointer;
+}
+.btn.active { background: var(--accent); color: #022c22; }
+.btn.subtle { background: #334155; color: #dbeafe; }
+.btn:disabled { opacity: 0.6; cursor: not-allowed; }
+.pill {
+  margin-left: auto;
+  background: #0b4a6f;
+  padding: 7px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+.stream-wrap {
+  position: relative;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #000;
+}
+#stream {
+  display: block;
+  width: 100%;
+  min-height: 240px;
+  object-fit: contain;
+}
+#zoneCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: auto;
+}
+.metrics {
+  display: flex;
+  gap: 12px;
+  margin: 10px 0;
+  font-size: 14px;
+  color: #cbd5e1;
+  flex-wrap: wrap;
+}
+.logs-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.logs-card h2 { margin: 0; }
+.logs {
+  background: var(--panel-2);
+  border-radius: 10px;
+  border: 1px solid #334155;
+  height: 70vh;
+  overflow: auto;
+  padding: 10px;
+  font-family: Consolas, monospace;
+  font-size: 12px;
+}
+.log-line {
+  padding: 6px 8px;
+  border-bottom: 1px solid #334155;
+  white-space: pre-wrap;
+}
+.log-line.warning { color: var(--warn); }
+.log-line.error { color: #ef4444; }
+.log-line.ppe {
+  color: #d1fae5;
+  background: rgba(20, 184, 166, 0.12);
+  border-left: 3px solid #14b8a6;
+}
+.log-line.intrusion {
+  color: #fee2e2;
+  background: rgba(220, 38, 38, 0.18);
+  border-left: 3px solid #ef4444;
+}
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .logs { height: 36vh; }
+}

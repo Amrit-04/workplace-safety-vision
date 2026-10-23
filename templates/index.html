@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Unified Safety Dashboard</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <main class="layout">
+    <section class="video-card">
+      <div class="toolbar">
+        <button id="ppeBtn" class="btn active">PPE Detection</button>
+        <button id="intrusionBtn" class="btn">Intrusion Detection</button>
+        <span id="statusPill" class="pill">Connecting...</span>
+      </div>
+
+      <div class="stream-wrap">
+        <img id="stream" src="/video_feed" alt="Live stream" />
+        <canvas id="zoneCanvas"></canvas>
+      </div>
+
+      <div class="metrics">
+        <span id="fps">FPS: --</span>
+        <span id="device">Device: --</span>
+        <span id="zones">Zones: --</span>
+        <span id="quality">IMG/JPEG: --</span>
+      </div>
+
+      <div class="zone-toolbar">
+        <button id="drawToggleBtn" class="btn subtle">Start Drawing</button>
+        <button id="finishZoneBtn" class="btn subtle">Finish Zone</button>
+        <button id="undoPointBtn" class="btn subtle">Undo Point</button>
+        <button id="clearZonesBtn" class="btn subtle">Clear All</button>
+        <button id="saveZonesBtn" class="btn">Save Zones</button>
+      </div>
+    </section>
+
+    <section class="logs-card">
+      <div class="logs-head">
+        <h2>Event Logs</h2>
+        <button id="downloadLogsBtn" class="btn subtle">Download CSV</button>
+      </div>
+      <div id="logs" class="logs"></div>
+    </section>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>
